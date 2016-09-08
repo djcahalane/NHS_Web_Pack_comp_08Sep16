@@ -1,0 +1,143 @@
+
+{
+"hadoop":[
+    {
+        "Strategy":"Build",
+        "Tactic":"Develop Talent",
+        "Lead Time":"3 Months",
+        "Cost":"$200k",
+        "Best Strategy":"Yes"
+    },
+     {
+        "Strategy":"Borrow",
+        "Tactic":"Contract",
+        "Lead Time":"3 Months",
+        "Cost":"$800k",
+        "Best Strategy":"No"
+    },
+     {
+        "Strategy":"Borrow",
+        "Tactic":"Crowd Source",
+        "Lead Time":"2 Months",
+        "Cost":"$500k",
+        "Best Strategy":"No"
+    },
+     {
+        "Strategy":"Buy",
+        "Tactic":"Hire Talent",
+        "Lead Time":"5 Months",
+        "Cost":"$2m",
+        "Best Strategy":"No"
+    },
+     {
+        "Strategy":"Automate",
+        "Tactic":"AI",
+        "Lead Time":"2 years",
+        "Cost":"$1m",
+        "Best Strategy":"No"
+    }
+    
+
+]
+,
+"python":[
+    {
+        "Strategy":"Build",
+        "Tactic":"Develop Talent",
+        "Lead Time":"1 Month",
+        "Cost":"$100k",
+        "Best Strategy":"Yes"
+    },
+     {
+        "Strategy":"Borrow",
+        "Tactic":"Contract",
+        "Lead Time":"5 Months",
+        "Cost":"$500k",
+        "Best Strategy":"No"
+    },
+     {
+        "Strategy":"Borrow",
+        "Tactic":"Crowd Source",
+        "Lead Time":"2 Months",
+        "Cost":"$500k",
+        "Best Strategy":"No"
+    },
+     {
+        "Strategy":"Buy",
+        "Tactic":"Hire Talent",
+        "Lead Time":"5 Months",
+        "Cost":"$2m",
+        "Best Strategy":"No"
+    }
+],
+"qlikview":[
+    {
+        "Strategy":"Build",
+        "Tactic":"Develop Talent",
+        "Lead Time":"3 Months",
+        "Cost":"$200k",
+        "Best Strategy":"Yes"
+    },
+     {
+        "Strategy":"Borrow",
+        "Tactic":"Contract",
+        "Lead Time":"3 Months",
+        "Cost":"$200k",
+        "Best Strategy":"No"
+    },
+     {
+        "Strategy":"Borrow",
+        "Tactic":"Crowd Source",
+        "Lead Time":"3 Months",
+        "Cost":"$200k",
+        "Best Strategy":"No"
+    },
+     {
+        "Strategy":"Buy",
+        "Tactic":"Hire Talent",
+        "Lead Time":"3 Months",
+        "Cost":"$200k",
+        "Best Strategy":"No"
+    },
+     {
+        "Strategy":"Automate",
+        "Tactic":"AI",
+        "Lead Time":"3 Months",
+        "Cost":"$200k",
+        "Best Strategy":"No"
+    }
+    
+
+],
+"splunk":[
+   {
+        "Strategy":"Build",
+        "Tactic":"Develop Talent",
+        "Lead Time":"4 Months",
+        "Cost":"$500k",
+        "Best Strategy":"Yes"
+    },
+     {
+        "Strategy":"Borrow",
+        "Tactic":"Contract",
+        "Lead Time":"3 Months",
+        "Cost":"$900k",
+        "Best Strategy":"No"
+    },
+     {
+        "Strategy":"Borrow",
+        "Tactic":"Crowd Source",
+        "Lead Time":"4 Months",
+        "Cost":"$550k",
+        "Best Strategy":"No"
+    },
+     {
+        "Strategy":"Buy",
+        "Tactic":"Hire Talent",
+        "Lead Time":"5 Months",
+        "Cost":"$3m",
+        "Best Strategy":"No"
+    }
+
+]
+}

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+	<title>Intelligent Talent</title>
+
+	<link rel="stylesheet" href="document.css"/> 
+	<link rel="stylesheet" href="claro.css"/>
+	<link rel="stylesheet" href="demo2.css"/>
+	<link rel="stylesheet" href="chart.css"/>
+	<link rel="stylesheet" href="D3templates/rPlot.css"/>
+	<link rel="stylesheet" href="D3templates/table.css"/> 
+
+
+
+	<style>
+
+	.node {
+	  stroke: #fff;
+	  stroke-width: 1.5px;
+	}
+
+	.link {
+	  stroke: #999;
+	  stroke-opacity: .6;
+	}
+
+
+	.mybutton {
+    
+    border: none;
+  
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+
+.mybutton {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+}
+
+.mybutton:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+#states path {
+  fill: #ccc;
+  stroke: #fff;
+}
+
+#worldMap circle {
+  fill: steelblue;
+  fill-opacity: .8;
+  stroke: #fff;
+}
+
+#tsChart {
+  font: 14px sans-serif;
+}
+
+#tsChart .axis path,
+#tsChart .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+#tsChart .x.axis path {
+  display: none;
+}
+
+
+#tsChart .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 3px;
+}
+
+#myTable .td {
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 0px;
+padding-bottom: 0px;
+}
+
+#rPlotDiv .nodeLabel {
+  font: 12px sans-serif;
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+}
+
+
+	</style>
+
+
+<script type="text/javascript" src="djr/dojo/dojo.js"
+		data-dojo-config="parseOnLoad: false, async:true"></script>
+
+<script type="text/javascript" src="src.js"></script>
+
+<script src="d3.v3.min.js"></script>
+
+	<script src="D3templates/globalFunctions.js"></script>
+
+  <script type="text/javascript" src="djr/dojo/dojo.js.uncompressed.js" data-dojo-config='packages: [{ name: "d3", location: "http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/" }], async: true, parseOnLoad: true'></script>
+
+
+<!-- 
+  <script type="text/javascript" src="script1a.js"></script>
+<script type="text/javascript" src="script2a.js"></script>
+<script type="text/javascript" src="script3a.js"></script> -->
+
+
+
+
+</head>
+<body class="claro">
+	<!-- basic preloader: -->
+	<div id="loader">
+		<div id="loaderInner" style="direction:ltr;">Loading ...</div>
+	</div>
+	
+	<script type="dojo/require">
+		dom: "dojo/dom",
+		registry: "dijit/registry"
+	</script>
+	
+
+	
+	<div id="main" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="liveSplitters:false, design:'headline'">
+	
+		<div style="left: 5px; right: 5px; top: 5px; position: absolute; width:90%%;" widgetid="headerPane" class="dijitContentPane dijitBorderContainer-child dijitBorderContainer-dijitContentPane dijitBorderContainerPane dijitAlignTop" data-dojo-type="dijit/layout/ContentPane" id="headerPane" data-dojo-props="splitter:false, region:'top'">
+<span style="font-size:150%">&nbsp <i><b>AI</b>TP</i> Accenture Intelligent Talent Planner</span></div>
+
+
+
+
+
+
+	
+	<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'leading', splitter:true, minSize:20"
+		  id="leftContent">
+
+
+
+		 			<div data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Explore Skill Gaps', open:'false'">
+
+			<table id="myTable"><tr><td>
+				<h2>Trending Skills</h2>
+
+				<p>The following skills are identified as potential Next Horizon Skills.<br>Click a skill name to explore.</p>
+				<div id="tsChart"></div>
+				
+
+				<script src="D3templates/tsChart.js"></script>
+
+				
+			
+
+			</td><td>
+			
+
+			</td></tr></table>
+
+
+	
+	
+		</div>
+
+
+
+
+
+
+
+	</div>
+
+
+
+
+
+
+	
+	<!-- top tabs (marked as "center" to take up the main part of the BorderContainer) -->
+	<div data-dojo-type="dijit/layout/TabContainer" data-dojo-props="region:'center', tabStrip:true" id="topTabs">
+	
+				<!-- ttab 00 -->
+		<div id="ttab00" data-dojo-type="dijit/layout/ContentPane" data-dojo-props='title:"Geo Analysis", style:" padding:10px; "'>
+			
+			
+				<h2>&nbsp</h2>
+				<p>&nbsp<br>&nbsp</p>
+				<div id="worldMap"></div>
+				<script src="D3templates/map4.js"></script>
+			
+		</div>
+		<!-- end:info ttab00 -->
+
+		<!-- ttab 0 -->
+		<div id="ttab0" data-dojo-type="dijit/layout/ContentPane" data-dojo-props='title:"Recommended Actions", style:" padding:10px; "'>
+			
+			<div id="tableDiv"></div>
+			<script src="D3templates/table.js"></script>
+	
+			
+		</div>
+		<!-- end:info ttab0 -->
+
+		<!-- ttab 1 -->
+		<div id="ttab1" data-dojo-type="dijit/layout/ContentPane" data-dojo-props='title:"Explain: Build Recomendation", style:" padding:10px; "'>
+			<p>Groups of resoucres already on staff have proximal skills. Here is an illustration of the groups identified.</p>
+
+
+			<div id="rPlotDiv"></div>
+			<script src="D3templates/rPlot2.js"></script>
+		</div>
+		
+		<!-- end:info ttab1 -->
+	
+		<div id="ttab2" data-dojo-type="dijit/layout/ContentPane"
+			 data-dojo-props='title:"Analysis: Borrow Scenario", style:"padding:20px;", closable:true, disabled:true'>
+			
+		</div>
+		<!-- ttab2 -->
+	
+		<div id="ttab3" data-dojo-type="dijit/layout/ContentPane" data-dojo-props='title:"Analysis: Buy Scenario", disabled:true, closable:true'>
+	
+		</div>
+
+	
+	
+	
+	
+	
+
+	</div>
+	<!-- end of region="center" TabContainer -->
+	
+	<!-- bottom right tabs -->
+	<div data-dojo-type="dijit/layout/TabContainer" id="bottomTabs"
+		 data-dojo-props="
+					tabPosition:'bottom', selectedchild:'btab1', region:'bottom',
+					splitter:true, tabStrip:true
+				">
+		<!-- btab 1 -->
+		<div id="btab1" data-dojo-type="dijit/layout/ContentPane" data-dojo-props='title:"Info", style:" padding:10px; "'>
+	
+		</div>
+		<!-- end:info btab1 -->
+
+
+		<div id="basicFormTab3" data-dojo-type="dijit/layout/ContentPane"
+		 data-dojo-props="title:'Skills Ontology', style:'padding:10px;display:none;'">
+	
+	
+		<h2>Skills Ontology</h2>
+	
+		<p></p>
+
+		
+		<a href="WebPics/Bglr1.svg"  onclick="window.open('WebPics/Bglr1.svg', 'newwindow1', 'scrollbars=yes,titlebar=yes,width=800,height=800'); return false;">Show in New Window</a>
+
+
+
+	
+				<object id="htmlObject1" type="text/html" data="WebPics/Bglr1.svg"
+            		style="width:100%; height:100%; margin:1%;">
+    			</object>		
+		</div>
+	
+	
+	
+	</div>
+	<!-- end Bottom TabContainer -->
+	
+	</div>
+	<!-- end of BorderContainer -->
+	
+	<!-- dialog in body -->
+	<div id="dialog1" data-dojo-type="dijit/Dialog" style="display:none;" data-dojo-props="
+			title:'Floating Modal Dialog from href',
+			href:'../../dijit/tests/layout/getResponse.php?delay=3000&amp;messId=3',
+			style: 'width: 400px;',
+			refreshOnShow:true
+		"></div>
+	<div id="dialogAB" data-dojo-type="dijit/Dialog" data-dojo-props="title:'Floating Modal Dialog'" style="display:none;">
+		<div class="dijitDialogPaneContentArea">
+			<table>
+				<tr>
+					<td><label for="name">Name: </label></td>
+					<td><input data-dojo-type="dijit/form/TextBox" type="text" name="name" id="name"></td>
+				</tr>
+				<tr>
+					<td><label for="loc">Location: </label></td>
+					<td><input data-dojo-type="dijit/form/TextBox" type="text" name="loc" id="loc"></td>
+				</tr>
+				<tr>
+					<td><label for="date">Date: </label></td>
+					<td><input data-dojo-type="dijit/form/DateTextBox" type="text" name="date" id="date"></td>
+				</tr>
+			</table>
+		</div>
+	
+		<div class="dijitDialogPaneActionBar">
+			<button data-dojo-type="dijit/form/Button" type="submit" id="ABdialog1button1">OK</button>
+			<button data-dojo-type="dijit/form/Button" type="button"
+					data-dojo-props="onClick:function(){ registry.byId('dialogAB').onCancel(); }"
+					id="ABdialog1button2">Cancel
+			</button>
+		</div>
+	</div>
+
+</body>
+</html>
